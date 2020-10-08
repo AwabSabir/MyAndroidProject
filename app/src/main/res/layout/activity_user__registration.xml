@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".User_Registration">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/singinTx"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="SignIN"
+
+            android:textColor="#01519D"
+            android:textSize="40sp"
+            android:textStyle="bold"
+
+
+            />
+
+        <TextView
+            android:id="@+id/wrapText3"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/singinTx"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Enter your personal Deatils"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:id="@+id/emaiInput"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/wrapText3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/inputfileds_registration"
+            android:hint="Email"
+            android:paddingLeft="15dp"
+            android:drawableLeft="@drawable/emaillogo"
+            android:drawablePadding="10dp"
+            android:inputType="textEmailAddress"
+            />
+
+        <EditText
+            android:id="@+id/firstName"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/emaiInput"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/inputfileds_registration"
+            android:hint="First name"
+            android:paddingLeft="15dp"
+            android:drawableLeft="@drawable/username"
+            android:drawablePadding="10dp"
+            />
+
+        <EditText
+            android:id="@+id/LName"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/firstName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/inputfileds_registration"
+            android:hint="Second name"
+            android:paddingLeft="15dp"
+            android:drawableLeft="@drawable/username"
+            android:drawablePadding="10dp"
+            />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/LName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/inputfileds_registration"
+            android:hint="Password"
+            android:paddingLeft="15dp"
+            android:inputType="textPassword"
+            android:drawableLeft="@drawable/paswordlogo"
+            android:drawablePadding="10dp"
+            />
+
+        <EditText
+            android:id="@+id/cPassword"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/inputfileds_registration"
+            android:hint="Confrompassword"
+            android:paddingLeft="15dp"
+            android:drawableLeft="@drawable/paswordlogo"
+            android:drawablePadding="10dp"
+            android:inputType="textPassword"
+            />
+
+
+
+        <Button
+
+            android:id="@+id/datepickerBtn"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cPassword"
+            android:layout_marginTop="10dp"
+            android:text="select date your Date of birth"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/inputfileds_registration"
+            android:textColor="@color/lightblue"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/genderSelectText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/datepickerBtn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Select Your Gander"
+            android:textColor="@color/darkparot"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+
+        <RadioGroup
+            android:id="@+id/GenderSelcect"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/genderSelectText"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:padding="5dp"
+
+            >
+
+            <RadioButton
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Male"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textSize="20sp" />
+
+        </RadioGroup>
+
+
+
+        <Button
+            android:id="@+id/regisrationBtn1"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            android:textSize="30sp"
+            android:background="@drawable/loginbtnbg"
+            android:textColor="@color/white"
+            android:layout_below="@id/GenderSelcect"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+
+            />
+
+
+    </RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

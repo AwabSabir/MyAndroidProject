@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3dd475</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="white">#ffff</color>
+
+    <color name="lightblue">#33BFFF</color>
+    <color name="bgcolor">#25424a</color>
+    <color name="parrotcolor">#3dd475</color>
+    <color name="darkparot">#96cb7f</color>
+    <color name="pinkcolr">#E95E84 </color>
+    <color name="orange">#FFD700</color>
+    <color name="tomatoo">#FF6347</color>
+    <color name="darkgreen">#0E894B </color>
+</resources>
