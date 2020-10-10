@@ -152,6 +152,7 @@
             >
 
             <RadioButton
+                android:id="@+id/maleRadio"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -159,6 +160,7 @@
                 android:textSize="20sp" />
 
             <RadioButton
+                android:id="@+id/femaleRadio"
                 android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:text="Female"

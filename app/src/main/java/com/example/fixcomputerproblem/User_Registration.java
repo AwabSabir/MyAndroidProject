@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -25,7 +27,8 @@ public class User_Registration extends AppCompatActivity {
   private Button registerbtn, dobSelectbtn;
   private AwesomeValidation awesomeValidation;
   private EditText fistname, lastname, password, cpassword,   email;
-  private RadioGroup gander;
+  private  RadioButton male, female;
+  private  String gander;
   private  DatePickerDialog.OnDateSetListener onDateSetListener;
    private  String date;
 
@@ -40,6 +43,17 @@ public class User_Registration extends AppCompatActivity {
         password=findViewById(R.id.password);
         cpassword=findViewById(R.id.cPassword);
         email=findViewById(R.id.emaiInput);
+        male=findViewById(R.id.maleRadio);
+        female=findViewById(R.id.femaleRadio);
+         if(male.isSelected()){
+             gander="male";
+         }
+         else {
+             gander="female";
+         }
+
+
+
 
 
         //adding validation
@@ -57,10 +71,10 @@ public class User_Registration extends AppCompatActivity {
 
                 if(view==registerbtn){
                     submitForm();
+
                 }
 
-                // Intent intent=new Intent(getApplication(), WelcomeScreen.class);
-             //   startActivity(intent);
+
             }
         });
 
@@ -92,10 +106,21 @@ public class User_Registration extends AppCompatActivity {
         //first validate the form then move ahead
         //if this becomes true that means validation is successfull
         if (awesomeValidation.validate()) {
-            Toast.makeText(this, "Validation Successfull", Toast.LENGTH_LONG).show();
-
+            Toast.makeText(this, "Your account created succfully", Toast.LENGTH_LONG).show();
+            Intent intent=new Intent(getApplication(), WelcomeScreen.class);
+            startActivity(intent);
             //process the data further
+
+            Log.d("User deatil",fistname.getText().toString()+ "\n"+
+                    lastname.getText().toString()+ "\n" +
+                    password.getText().toString()+ "\n" +
+                    "Date of birthe " + date + "\n" +  gander);
         }
     }
+
+
+
+
+
 
 }
