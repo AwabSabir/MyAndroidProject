@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activate_Software">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/welcomText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome Select software you want install"
+            android:textSize="50sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/darkgreen"
+
+
+            />
+
+        <RadioGroup
+            android:id="@+id/selectsoftwae"
+            android:layout_width="339dp"
+            android:layout_height="187dp"
+            android:layout_below="@id/welcomText"
+            android:layout_marginLeft="30sp"
+            android:layout_marginTop="40sp">
+
+            <RadioButton
+                android:id="@+id/msWord"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ms Office"
+                android:textSize="30sp" />
+
+            <RadioButton
+                android:id="@+id/idm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Inter net download manger"
+                android:textSize="30sp" />
+
+            <RadioButton
+                android:id="@+id/other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Other"
+                android:textSize="30sp" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/comment"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_below="@id/selectsoftwae"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="4dp"
+
+            android:layout_marginTop="39dp"
+            android:layout_marginRight="-4dp"
+            android:layout_marginBottom="3dp"
+            android:hint="Type Software name to Activate"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/submiActivation"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/comment"
+            android:text="submit"
+            android:background="@drawable/loginbtn"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/lightblue"
+            />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

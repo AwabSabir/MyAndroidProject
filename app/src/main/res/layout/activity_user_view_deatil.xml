@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserViewDeatil">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/yourDeatil"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="Your Deatil"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"
+            />
+
+        <TextView
+            android:id="@+id/namePrint"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/yourDeatil"
+            android:layout_marginTop="30dp"
+            android:text="Name: "
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="10dp"
+
+            />
+        <TextView
+            android:id="@+id/emailPrint"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/namePrint"
+            android:layout_marginTop="30dp"
+            android:text="Email: "
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="10dp"
+            />
+        <TextView
+            android:id="@+id/dobPrint"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/emailPrint"
+            android:layout_marginTop="30dp"
+            android:text="Date of birth: "
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="10dp"
+
+            />
+        <TextView
+            android:id="@+id/ganderPrint"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/dobPrint"
+            android:layout_marginTop="30dp"
+            android:text="Gander: "
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="10dp"
+
+            />
+        <Button
+            android:id="@+id/backbtn"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/ganderPrint"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/loginbtnbg"
+            android:text="back"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"
+            />
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

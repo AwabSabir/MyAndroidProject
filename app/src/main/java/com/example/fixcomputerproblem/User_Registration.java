@@ -17,11 +17,22 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.common.collect.Range;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class User_Registration extends AppCompatActivity {
   private Button registerbtn, dobSelectbtn;
@@ -30,7 +41,11 @@ public class User_Registration extends AppCompatActivity {
   private  RadioButton male, female;
   private  String gander;
   private  DatePickerDialog.OnDateSetListener onDateSetListener;
-   private  String date;
+   private  String date, userConfromPassword;
+   private  static  String url="https://roboinfo31.000webhostapp.com/mysqliConnect2.php";
+
+   private  String setResponce;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +60,7 @@ public class User_Registration extends AppCompatActivity {
         email=findViewById(R.id.emaiInput);
         male=findViewById(R.id.maleRadio);
         female=findViewById(R.id.femaleRadio);
-         if(male.isSelected()){
-             gander="male";
-         }
-         else {
-             gander="female";
-         }
+
 
 
 
@@ -64,15 +74,28 @@ public class User_Registration extends AppCompatActivity {
         awesomeValidation.addValidation(this,R.id.emaiInput, Patterns.EMAIL_ADDRESS, R.string.nameerror);
 
 
+
         registerbtn=findViewById(R.id.regisrationBtn1);
         registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+
+
                 if(view==registerbtn){
                     submitForm();
 
                 }
+                if(female.isChecked()){
+                    gander="Female";
+                }
+                else if(male.isChecked()){
+                    gander="Male";
+                }
+
+
+
+
 
 
             }
@@ -96,7 +119,8 @@ public class User_Registration extends AppCompatActivity {
    onDateSetListener=new DatePickerDialog.OnDateSetListener() {
        @Override
        public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-                date=i+ "/" + i1+"/" + i2;
+                date=i+ "-" + i1+"-" + i2;
+                dobSelectbtn.setText(date);
        }
    };
 
@@ -106,18 +130,72 @@ public class User_Registration extends AppCompatActivity {
         //first validate the form then move ahead
         //if this becomes true that means validation is successfull
         if (awesomeValidation.validate()) {
-            Toast.makeText(this, "Your account created succfully", Toast.LENGTH_LONG).show();
+           // Toast.makeText(this, setResponce, Toast.LENGTH_LONG).show();
             Intent intent=new Intent(getApplication(), WelcomeScreen.class);
-            startActivity(intent);
-            //process the data further
 
-            Log.d("User deatil",fistname.getText().toString()+ "\n"+
-                    lastname.getText().toString()+ "\n" +
-                    password.getText().toString()+ "\n" +
-                    "Date of birthe " + date + "\n" +  gander);
+            //process the data furthe
+            String UserPassword, confromPassword;
+            UserPassword=password.getText().toString();
+
+            confromPassword=cpassword.getText().toString();
+             if(setPassword(UserPassword,confromPassword)){
+                 userConfromPassword=confromPassword;
+                insertData();
+                 startActivity(intent);
+             }
+             else {
+                 Toast.makeText(getApplicationContext(),"Both password not same", Toast.LENGTH_SHORT).show();
+             }
+
         }
+
+    }
+    public  boolean setPassword(String pas, String pas1){
+       return  pas.equals(pas1);
     }
 
+     public void insertData(){
+         StringRequest request=new StringRequest(Request.Method.POST, url,
+                 new Response.Listener<String>() {
+                     @Override
+                     public void onResponse(String response) {
+                         Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                      //   setResponce=response;
+                       //  Log.d("REsponse", response);
+                     }
+                 }, new Response.ErrorListener() {
+             @Override
+             public void onErrorResponse(VolleyError error) {
+                 Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                 Log.d("Error msage",error.getMessage());
+             }
+         }
+
+         ){
+             protected Map<String, String> getParams() throws AuthFailureError{
+                 Map<String,String> params=new HashMap<String, String>();
+                 params.put("email", email.getText().toString());
+                 params.put("fname", fistname.getText().toString());
+                 params.put("lname", lastname.getText().toString());
+                 params.put("password", userConfromPassword);
+                 params.put("dob", date);
+                 params.put("gander",getGander(female,male));
+                 return params;
+             }
+         };
+         RequestQueue i= Volley.newRequestQueue(this);
+         i.add(request);
+     }
+
+     private  String getGander(RadioButton btn1, RadioButton btn2){
+        if(btn1.isChecked()){
+            return  btn1.getText().toString();
+        }
+        else if (btn2.isChecked()){
+            return  btn2.getText().toString();
+        }
+        return  "select your gander First";
+     }
 
 
 

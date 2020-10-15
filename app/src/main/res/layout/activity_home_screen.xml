@@ -12,12 +12,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:layout_editor_absoluteY="0dp">
 
+
         <ImageView
             android:id="@+id/windowintall"
             android:layout_width="match_parent"
             android:layout_height="193dp"
             android:background="@color/lightblue"
-            android:src="@drawable/installationofwindows" />
+            android:src="@drawable/installationofwindows"
+
+            />
 
         <LinearLayout
             android:id="@+id/userbillLayout"
@@ -39,14 +42,15 @@
             <ImageView
                 android:layout_width="185dp"
                 android:layout_height="150dp"
-                android:src="@drawable/userbill" />
+                android:src="@drawable/user_people" />
 
             <Button
+                android:id="@+id/viewProfile"
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:background="@drawable/screenbtn"
-                android:text="User bill"
+                android:text="Deatil profile"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold"
@@ -92,6 +96,7 @@
             android:layout_below="@+id/userbillLayout"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
             android:layout_marginStart="-3dp"
             android:paddingRight="10dp"
             android:layout_marginLeft="-3dp"
@@ -144,6 +149,7 @@
                 android:src="@drawable/installsoftware" />
 
             <Button
+                android:id="@+id/instaSoftware"
                 android:layout_width="160dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
@@ -177,6 +183,7 @@
                 android:src="@drawable/activationkey" />
 
             <Button
+                android:id="@+id/activatebtn"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
